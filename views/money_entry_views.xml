@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+  <!-- TreeView -->
+  <record id="view_money_entry_tree" model="ir.ui.view">
+    <field name="name">money.entry.tree</field>
+    <field name="model">money.entry</field>
+    <field name="arch" type="xml">
+      <tree string="Money Entry">
+          <field name="date"/>
+          <field name="name"/>
+          <field name="type"/>
+          <field name="amount"/>
+          <!-- <field name="balance" readonly = "1"/> -->
+      </tree>
+    </field>
+  </record>
+
+
+
   <!-- Action  -->
  <record id="action_money_entry" model="ir.actions.act_window">
   <field name="name">Money Entry</field>
   <field name="res_model">money.entry</field>
-  <field name="view_model">tree,form</field>
+  <field name="view_mode">tree,form</field>
  </record>
   
   <!-- Menu  -->

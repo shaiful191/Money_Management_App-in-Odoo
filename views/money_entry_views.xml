@@ -11,11 +11,10 @@
           <field name="name"/>
           <field name="type"/>
           <field name="amount"/>
-          <!-- <field name="balance" readonly = "1"/> -->
+          <field name="balance" readonly = "1"/>
       </tree>
     </field>
   </record>
-
 
 
   <!-- Action  -->
@@ -24,8 +23,20 @@
   <field name="res_model">money.entry</field>
   <field name="view_mode">tree,form</field>
  </record>
-  
+
+  <!-- Server Action -->
+  <record id="action_get_balance" model="ir.actions.server">
+    <field name="name">Show Balance</field>
+    <field name="model_id" ref="model_money_entry"/>
+    <field name="state">code</field>
+    <field name="code">action = model.get_balance2()</field>
+  </record>
+
+
+
+
   <!-- Menu  -->
+
   <menuitem
   id="menu_money_management_app_root"
   name="Money Management App"
@@ -36,6 +47,16 @@
     parent="menu_money_management_app_root"
     action="action_money_entry"
   />
+
+
+  <menuitem
+    id="menu_show_balance"
+    name="Show Balance Popup"
+    parent="menu_money_management_app_root"
+    action="action_get_balance"
+    sequence="20"
+    />
+
  
 
 </odoo>
